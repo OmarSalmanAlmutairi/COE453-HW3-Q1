@@ -1,0 +1,109 @@
+swagger: "2.0"
+info:
+  title: onlineCalculator
+  description: calculator API.
+  version: 1.0.0
+
+host: myCalculator3API.apigateway.mycalculator3api.cloud.goog
+basePath: /
+schemes:
+  - https
+  - http
+
+paths:
+
+  /add:
+    post:
+      operationId: postAddOperation
+      summary: Add two numbers.
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: numbers
+          description: Numbers to add
+          required: true
+          schema:
+            type: object
+            properties:
+              X:
+                type: number
+              Y:
+                type: number
+      responses:
+        200:
+          description: OK
+      x-google-backend:
+        address: https://us-central1-fluted-citizen-415215.cloudfunctions.net/add-function
+
+  /sub:
+    post:
+      operationId: postSubtractOperation
+      summary: Subtract one number from another.
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: numbers
+          description: Numbers for subtraction
+          required: true
+          schema:
+            type: object
+            properties:
+              X:
+                type: number
+              Y:
+                type: number
+      responses:
+        200:
+          description: OK
+      x-google-backend:
+        address: https://us-central1-fluted-citizen-415215.cloudfunctions.net/sub-function
+
+  /mul:
+    post:
+      operationId: postMultiplyOperation
+      summary: Multiply two numbers.
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: numbers
+          description: Numbers to multiply
+          required: true
+          schema:
+            type: object
+            properties:
+              X:
+                type: number
+              Y:
+                type: number
+      responses:
+        200:
+          description: OK
+      x-google-backend:
+        address: https://us-central1-fluted-citizen-415215.cloudfunctions.net/mul-function
+
+  /div:
+    post:
+      operationId: postDivideOperation
+      summary: Divide one number by another.
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: numbers
+          description: Numbers for division
+          required: true
+          schema:
+            type: object
+            properties:
+              X:
+                type: number
+              Y:
+                type: number
+      responses:
+        200:
+          description: OK
+      x-google-backend:
+        address: https://us-central1-fluted-citizen-415215.cloudfunctions.net/div-function
